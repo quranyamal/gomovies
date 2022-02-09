@@ -13,7 +13,7 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
       - SSL_MODE=${SSL_MODE}
-      # - GO_MOVIES_JWT=
+      - GO_MOVIES_JWT=${GO_MOVIES_JWT}
 
   client:
     build: frontend/.
