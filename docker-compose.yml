@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  api:
+    build: backend/.
+    ports:
+      - "4000:4000"
+    depends_on:
+      - postgres
+    restart: always
+    environment:
+      - POSTGRES_HOST=postgres # specify ip address, avoid using 'localhost'
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_PASSWORD=bismillah
+      - POSTGRES_DB=go_movies
+      - SSL_MODE=disable
+      # - GO_MOVIES_JWT=
+  client:
+    build: frontend/.
+    ports:
+      - "3000:3000"
+  
+  postgres:
+    image: postgres:14.1
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=bismillah
+      - POSTGRES_DB=go_movies
+    ports:
+      - "5432:5432"
+    volumes:
+       - ./db/imports/init.sql:/docker-entrypoint-initdb.d/init.sql

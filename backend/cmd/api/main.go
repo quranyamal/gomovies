@@ -19,7 +19,11 @@ const version = "1.0.0"
 type config struct {
 	port int
 	env  string
-	db struct {
+	db   struct {
+		// host     string
+		// username string
+		// password string
+		// dbname   string
 		dsn string
 	}
 	jwt struct {
@@ -42,13 +46,20 @@ type application struct {
 func main() {
 	var cfg config
 
+	cfg.jwt.secret = os.Getenv("GO_MOVIES_JWT")
+
+	connStr := fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=%s",
+		os.Getenv("POSTGRES_USERNAME"),
+		os.Getenv("POSTGRES_PASSWORD"),
+		os.Getenv("POSTGRES_HOST"),
+		os.Getenv("POSTGRES_DB"),
+		os.Getenv("SSL_MODE"),
+	)
+
 	flag.IntVar(&cfg.port, "port", 4000, "Server port to listen on")
 	flag.StringVar(&cfg.env, "env", "development", "Application environment (development|production")
-	flag.StringVar(&cfg.db.dsn, "dsn", "postgres://tcs@localhost/go_movies?sslmode=disable", "Postgres connection string")
+	flag.StringVar(&cfg.db.dsn, "dsn", connStr, "Postgres connection string")
 	flag.Parse()
-
-	// read jwt secret from env
-	cfg.jwt.secret = os.Getenv("GO_MOVIES_JWT")
 
 	logger := log.New(os.Stdout, "", log.Ldate|log.Ltime)
 
