@@ -49,7 +49,7 @@ func main() {
 	cfg.jwt.secret = os.Getenv("GO_MOVIES_JWT")
 
 	connStr := fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=%s",
-		os.Getenv("POSTGRES_USERNAME"),
+		os.Getenv("POSTGRES_USER"),
 		os.Getenv("POSTGRES_PASSWORD"),
 		os.Getenv("POSTGRES_HOST"),
 		os.Getenv("POSTGRES_DB"),
