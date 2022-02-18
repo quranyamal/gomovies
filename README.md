@@ -12,7 +12,9 @@ This is a source code of containerized three-tier web application to display mov
 2. Authentication with JWT
 3. Containerized stack using docker compose
 
-Pre-requisite: Docker & docker-compose installed
+## Pre-requisite:
+- Docker & docker-compose installed
+- Docker daemon is running
 
 ## How to use
 - Clone this repository: `git clone https://github.com/quranyamal/gomovies`
@@ -20,4 +22,4 @@ Pre-requisite: Docker & docker-compose installed
 - Rename ".env.example" to ".env": `mv .env.example .env`
 - Create and start containers: `docker compose up`
 
-The web page is served on port 3000 and the API on port 3000 (by default).
+The web page is served on port 3000 and the API on port 3000 (by default). Please go to http://localhost:3000/ or http://[hostname]:3000/ from your browser after starting the containers.
