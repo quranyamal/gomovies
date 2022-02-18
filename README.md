@@ -15,12 +15,9 @@ This is a source code of containerized three-tier web application to display mov
 Pre-requisite: Docker & docker-compose installed
 
 ## How to use
-- Clone this repository:
-    `git clone https://github.com/quranyamal/gomovies`
-- Go to the project directory:
+- Clone this repository: `git clone https://github.com/quranyamal/gomovies`
+- Go to the project directory: `cd gomovies`
 - Rename ".env.example" to ".env": `mv .env.example .env`
-    `cd gomovies`
-- Create and start containers:
-    `docker compose up`
+- Create and start containers: `docker compose up`
 
 The web page is served on port 3000 and the API on port 3000 (by default).
