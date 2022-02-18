@@ -18,6 +18,7 @@ Pre-requisite: Docker & docker-compose installed
 - Clone this repository:
     `git clone https://github.com/quranyamal/gomovies`
 - Go to the project directory:
+- Rename .env.example to .env: `mv .env.example .env`
     `cd gomovies`
 - Create and start containers:
     `docker compose up`
