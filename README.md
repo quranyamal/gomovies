@@ -1,6 +1,7 @@
 # Go Movies
 
-This is a source code of containerized three-tier web application to display movies.
+A three-tier web application to display movies. The tiers are containerized and configured using docker compose.
+
 ## Tech stack
 - Front End: React
 - Back End: Go
@@ -22,4 +23,4 @@ This is a source code of containerized three-tier web application to display mov
 - Rename ".env.example" to ".env": `mv .env.example .env`
 - Create and start containers: `docker compose up`
 
-The web page is served on port 3000 and the API on port 3000 (by default). Please go to http://localhost:3000/ or http://[hostname]:3000/ from your browser after starting the containers.
+The web page is served on port 3000 and the API on port 4000 (by default). Please go to http://localhost:3000/ or http://[hostname]:3000/ from your browser after starting the containers.
